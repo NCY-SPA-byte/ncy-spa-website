@@ -1,3 +1,4 @@
+/* GRUNDSTEUERUNG */
 * {
     margin: 0;
     padding: 0;
@@ -8,307 +9,225 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
     color: #333;
+    overflow-x: hidden; /* Verhindert seitliches Wackeln am Handy */
+}
+
+/* Bilder global anpassen - WICHTIG FÜR HANDYS */
+img {
+    max-width: 100%; /* Bild wird nie breiter als der Bildschirm */
+    height: auto;    /* Proportional richtiges Verhältnis */
+    display: block;
+    margin: 0 auto;
 }
 
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 15px;
 }
 
-/* Navigation */
+/* NAVIGATION */
 .navbar {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
-    padding: 1rem 0;
+    padding: 10px 0;
     position: sticky;
     top: 0;
-    z-index: 100;
+    z-index: 1000;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .navbar .container {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column; /* Stapelt Logo und Links am Handy */
     align-items: center;
+    text-align: center;
 }
 
-.logo {
-    font-size: 1.8rem;
-    font-weight: bold;
+.navbar h1 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    line-height: 1.2;
+}
+
+.navbar h1 p {
+    font-size: 0.9rem;
+    font-weight: normal;
+    margin: 0;
 }
 
 .nav-links {
     display: flex;
     list-style: none;
-    gap: 2rem;
+    gap: 12px;
+    flex-wrap: wrap; /* Zeilenumbruch, wenn das Menü zu breit wird */
+    justify-content: center;
+    padding-bottom: 5px;
 }
 
 .nav-links a {
     color: white;
     text-decoration: none;
-    transition: opacity 0.3s;
+    font-size: 0.9rem;
+    font-weight: 500;
 }
 
-.nav-links a:hover {
-    opacity: 0.8;
-}
-
-/* Hero Section */
+/* HERO SECTION (Das große Logo oben) */
 .hero {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    padding: 120px 20px;
-    text-align: center;
-    min-height: 500px;
+    padding: 40px 20px;
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
 }
 
-.hero-content h1 {
-    font-size: 3.5rem;
-    margin-bottom: 1rem;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+.hero-content img {
+    max-width: 250px; /* Logo wird am PC nicht zu riesig */
+    width: 80%;       /* Logo wird am Handy kleiner */
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
 }
 
-.hero-content p {
-    font-size: 1.5rem;
-    margin-bottom: 2rem;
-    opacity: 0.9;
-}
-
-.cta-button {
-    display: inline-block;
-    background: #fff;
-    color: #667eea;
-    padding: 12px 30px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: transform 0.3s, box-shadow 0.3s;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-}
-
-.cta-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-}
-
-/* Services Section */
+/* SERVICES */
 .services {
-    padding: 60px 20px;
+    padding: 40px 15px;
     background: #f9f9f9;
 }
 
 .services h2 {
     text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 3rem;
     color: #667eea;
+    margin-bottom: 25px;
 }
 
 .service-card {
     background: white;
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    max-width: 600px;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    max-width: 800px;
     margin: 0 auto;
 }
 
-.service-card h3 {
-    color: #764ba2;
-    margin-bottom: 1rem;
-    font-size: 1.5rem;
-}
-
-.service-card p {
-    color: #666;
-    line-height: 1.8;
-}
-
-/* Prices Section */
+/* PREISE */
 .prices {
-    padding: 60px 20px;
-    background: white;
+    padding: 40px 15px;
 }
 
 .prices h2 {
     text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 3rem;
     color: #667eea;
+    margin-bottom: 25px;
 }
 
 .price-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    max-width: 600px;
-    margin: 0 auto;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
 }
 
 .price-card {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
-    padding: 2rem;
-    border-radius: 10px;
+    padding: 20px;
+    border-radius: 15px;
     text-align: center;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s;
-}
-
-.price-card:hover {
-    transform: translateY(-5px);
-}
-
-.price-card h3 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
 }
 
 .price-card .price {
-    font-size: 2.5rem;
-    font-weight: bold;
-    margin-bottom: 1rem;
-}
-
-.price-card p {
-    opacity: 0.9;
-}
-
-/* Hours Section */
-.hours {
-    padding: 40px 20px;
-    background: #f9f9f9;
-    text-align: center;
-}
-
-.hours h2 {
     font-size: 2rem;
-    color: #667eea;
-    margin-bottom: 2rem;
+    font-weight: bold;
 }
 
-.hours-table {
-    display: inline-block;
-    background: white;
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-}
-
-.hours-table tr td {
-    padding: 0.5rem 1rem;
-    font-size: 1.1rem;
-}
-
-/* Contact Section */
+/* KONTAKT & MAP */
 .contact {
-    padding: 60px 20px;
-    background: white;
-}
-
-.contact h2 {
-    text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 3rem;
-    color: #667eea;
+    padding: 40px 15px;
 }
 
 .contact-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin-bottom: 3rem;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
 }
 
 .contact-info {
     background: #f9f9f9;
-    padding: 2rem;
-    border-radius: 10px;
+    padding: 20px;
+    border-radius: 15px;
     text-align: center;
-}
-
-.contact-info h3 {
-    color: #764ba2;
-    margin-bottom: 1rem;
-    font-size: 1.3rem;
-}
-
-.contact-info p {
-    color: #666;
-    line-height: 1.8;
-}
-
-.contact-info a {
-    color: #667eea;
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s;
-}
-
-.contact-info a:hover {
-    color: #764ba2;
 }
 
 .map-container {
-    margin-top: 2rem;
-    border-radius: 10px;
+    margin-top: 30px;
+    border-radius: 15px;
     overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    height: 300px; /* Feste Höhe am Handy */
 }
 
-/* Footer */
+.map-container iframe {
+    height: 100% !important;
+}
+
+/* GALERIE */
+.gallery-header {
+    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+    color: white;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+    padding: 20px 0;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover; /* Bilder werden passend zugeschnitten statt gequetscht */
+    border-radius: 10px;
+}
+
+/* FOOTER */
 .footer {
-    background: #333;
+    background: #222;
     color: white;
     text-align: center;
-    padding: 2rem;
+    padding: 30px 15px;
+    font-size: 0.9rem;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .nav-links {
-        gap: 1rem;
-    }
-
-    .hero-content h1 {
-        font-size: 2rem;
-    }
-
-    .hero-content p {
-        font-size: 1.2rem;
-    }
-
-    .services h2,
-    .prices h2,
-    .contact h2 {
-        font-size: 2rem;
-    }
-
-    .price-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .contact-grid {
-        grid-template-columns: 1fr;
-    }
+/* BUTTONS */
+.cta-button {
+    display: inline-block;
+    background: #667eea;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 50px;
+    text-decoration: none;
+    margin-top: 20px;
 }
 
-@media (max-width: 480px) {
+/* ANPASSUNGEN FÜR GROSSE BILDSCHIRME (PC) */
+@media (min-width: 768px) {
+    .navbar .container {
+        flex-direction: row; /* Am PC wieder nebeneinander */
+        justify-content: space-between;
+    }
+    
+    .navbar h1 {
+        text-align: left;
+        margin-bottom: 0;
+    }
+
     .nav-links {
-        flex-direction: column;
-        gap: 0.5rem;
+        gap: 25px;
     }
 
-    .hero-content h1 {
-        font-size: 1.5rem;
-    }
-
-    .cta-button {
-        padding: 10px 20px;
-        font-size: 0.9rem;
+    .map-container {
+        height: 450px;
     }
 }
